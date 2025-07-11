@@ -51,12 +51,12 @@ importers:
       globals:
         specifier: ^16.3.0
         version: 16.3.0
-      husk:
-        specifier: ^0.5.3
-        version: 0.5.3
       prettier:
         specifier: 3.6.2
         version: 3.6.2
+      prettier-quick:
+        specifier: ^0.0.5
+        version: 0.0.5
       typescript-eslint:
         specifier: ^8.36.0
         version: 8.36.0(eslint@9.30.1)(typescript@5.8.3)
@@ -325,9 +325,6 @@ packages:
   async-function@1.0.0:
     resolution: {integrity: sha512-hsU18Ae8CDTR6Kgu9DYf0EbCr/a5iGL0rytQDobUcdpYOKokk8LEjVphnXkDkgpi0wYVsqrXuP0bZxJaTqdgoA==}
     engines: {node: '>= 0.4'}
-
-  async-stream-flow@1.0.2:
-    resolution: {integrity: sha512-Iy1ynz7dKRhlvypxRm3zLbPDJsYaeKOQRfxRhZEM3ZZCNq3N0jR/T6KRUJxWVf9AHi5ynj/Wp4L7gATeLGSW9g==}
 
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
@@ -698,9 +695,6 @@ packages:
     resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==}
     engines: {node: '>= 0.8'}
 
-  fs-flow@1.0.2:
-    resolution: {integrity: sha512-AUYZEh7fNmZFHm8w2S4rs0oaJg0l/a8AXLAAFqu/ulmpbPoIxkovrfw/j9GcAYxIc3Oj7eRIibTX82s5+nCtag==}
-
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
@@ -790,27 +784,6 @@ packages:
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
     engines: {node: '>= 0.8'}
-
-  husk-async@1.0.3:
-    resolution: {integrity: sha512-VW6/vJKdnhbybdeh4e0ITZ1azI50xmTUrfBSuZhOcTxTOyinJLt1/RsegJXmK+c92MzcOr9WsOJpSt6EZW11xg==}
-
-  husk-core@1.0.4:
-    resolution: {integrity: sha512-duZv9ZJFlUt44vwEGLW1HvnzL9kS6AQklydtOYRJ4BT9O9aZ1Aixtt0sBv7b2dTicchYMpSkdJJNVpC8BKT0cA==}
-
-  husk-exec@1.0.4:
-    resolution: {integrity: sha512-eHZH+pYbDGFZXxvvvUhi0Jj8QA4963XpjuYk11ytK/oF2LcLGp9dzng7OUytHa9Y+EucdfGl+7js9Klurwntyw==}
-
-  husk-fs@1.0.3:
-    resolution: {integrity: sha512-OizyOaE/FlV/11SOWUOvgBmIvZD3/bGghKQafzNtq4I6VePWZ2kH3q1zuck1cLfhOcYztdVdZaOaRC+rFHOcBg==}
-
-  husk-print@1.0.3:
-    resolution: {integrity: sha512-paJ8IGpFoS9vKdWHS4tqtiwoF6dX48Il4z1/yP+9ulEwm6RTpC42mkKAj6MtD+CIYAxCLAwYvkTwMqh1Vg/KWg==}
-
-  husk-through@1.0.2:
-    resolution: {integrity: sha512-hm0xz/MkfZDxHm0PFm07sb+FuHTHCtPHeXNcBtf0Kl/vKx2hQoliYU1NC5JVjO+fe79z4uCBfI9/l3rFctIFwg==}
-
-  husk@0.5.3:
-    resolution: {integrity: sha512-4rLByTytY2LtiuyiRQ20C4AmSZ0+/imh1557r92TFcgAgeTgcsVwHlGLi2nO4QNiEKhvhlPj9HuCjKWfwNtwYA==}
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -1120,16 +1093,13 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  prettier-quick@0.0.5:
+    resolution: {integrity: sha512-5zOMSPAK7JQMNWjtxAy35XPgRN8TQY+khgpNhznQ30Zsv6V0hOIjre8X5cTrtdqa3NKZWWF1+TNS5+1LX/3a0w==}
+
   prettier@3.6.2:
     resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
-
-  print-flow@1.0.2:
-    resolution: {integrity: sha512-yg5dgWP8pvtV0vWEQNXP47Nwnmt+3gOJg0EgH6mXfrUUlz/fVX7Xkif5gGMiSDMq3QGwswE3RoTlgzSMpRLs1g==}
-
-  process-flow@1.0.2:
-    resolution: {integrity: sha512-MJGNN728wtacWIPgp+bsUKwtNX9aKOw2HZVD+jrnZkTMCf4jrhvZnZnEaz6NUHKEy7rEFmz6sVDmz7O2k06xvQ==}
 
   proxy-addr@2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -1307,12 +1277,6 @@ packages:
     resolution: {integrity: sha512-Re10+NauLTMCudc7T5WLFLAwDhQ0JWdrMK+9B2M8zR5hRExKmsRDCBA7/aV/pNJFltmBFO5BAMlQFi/vq3nKOg==}
     engines: {node: '>=6'}
 
-  through-flow@1.0.2:
-    resolution: {integrity: sha512-j6IAxjqlbQAdQ45aQ2qw/TLdOsh3mzsaOtnMnw2ceW6N+zowlQZX3EXLhnqoa6Sz+NUdZdxzAEQhLTXSXHVoNw==}
-
-  through3@1.1.7:
-    resolution: {integrity: sha512-9bUZXDGridMzC3uqRKw+ilb4n4S0Fo6AQNi9wM9zBYHJpQVsfI4JaroFSACXmDKViL+upDI3+V/io3UwlCTmtA==}
-
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -1441,9 +1405,6 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-
-  zephyr@1.2.8:
-    resolution: {integrity: sha512-Evw01lEec5dp3gUlyKrCSRlZpcO2FpRq+SgpA1Ha9YgGKY2kFkGh6S3nVgzCagN9HtD//vmET/fQzojiK+NYog==}
 
 snapshots:
 
@@ -1767,10 +1728,6 @@ snapshots:
       is-array-buffer: 3.0.5
 
   async-function@1.0.0: {}
-
-  async-stream-flow@1.0.2:
-    dependencies:
-      through3: 1.1.7
 
   available-typed-arrays@1.0.7:
     dependencies:
@@ -2271,11 +2228,6 @@ snapshots:
 
   fresh@2.0.0: {}
 
-  fs-flow@1.0.2:
-    dependencies:
-      async-stream-flow: 1.0.2
-      through3: 1.1.7
-
   function-bind@1.1.2: {}
 
   function.prototype.name@1.1.8:
@@ -2371,39 +2323,6 @@ snapshots:
       setprototypeof: 1.2.0
       statuses: 2.0.1
       toidentifier: 1.0.1
-
-  husk-async@1.0.3:
-    dependencies:
-      async-stream-flow: 1.0.2
-
-  husk-core@1.0.4:
-    dependencies:
-      husk-print: 1.0.3
-      husk-through: 1.0.2
-
-  husk-exec@1.0.4:
-    dependencies:
-      process-flow: 1.0.2
-
-  husk-fs@1.0.3:
-    dependencies:
-      fs-flow: 1.0.2
-
-  husk-print@1.0.3:
-    dependencies:
-      print-flow: 1.0.2
-
-  husk-through@1.0.2:
-    dependencies:
-      through-flow: 1.0.2
-
-  husk@0.5.3:
-    dependencies:
-      husk-async: 1.0.3
-      husk-core: 1.0.4
-      husk-exec: 1.0.4
-      husk-fs: 1.0.3
-      zephyr: 1.2.8
 
   iconv-lite@0.6.3:
     dependencies:
@@ -2695,15 +2614,9 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
+  prettier-quick@0.0.5: {}
+
   prettier@3.6.2: {}
-
-  print-flow@1.0.2:
-    dependencies:
-      through3: 1.1.7
-
-  process-flow@1.0.2:
-    dependencies:
-      through3: 1.1.7
 
   proxy-addr@2.0.7:
     dependencies:
@@ -2929,12 +2842,6 @@ snapshots:
 
   tapable@2.2.2: {}
 
-  through-flow@1.0.2:
-    dependencies:
-      through3: 1.1.7
-
-  through3@1.1.7: {}
-
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
@@ -3101,5 +3008,3 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
-
-  zephyr@1.2.8: {}

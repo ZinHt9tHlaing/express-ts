@@ -47,3 +47,13 @@ export const updateProductById = async (id: string, payload: ProductType) => {
     logger.error(error);
   }
 };
+
+export const deleteProductById = async (id: string) => {
+  try {
+    const product = await ProductModel.findOneAndDelete({ product_id: id });
+    return product;
+  } catch (error) {
+    logger.info("Cannot update product from DB");
+    logger.error(error);
+  }
+};

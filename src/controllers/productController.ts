@@ -1,7 +1,13 @@
 import { Request, Response } from "express";
 import { createProductValidation, updateProductValidation } from "../validations/product.validation";
 import { logger } from "../utils/logger";
-import { createProductToDB, getProductById, getProductFromDB, updateProductById } from "../services/product.services";
+import {
+  createProductToDB,
+  deleteProductById,
+  getProductById,
+  getProductFromDB,
+  updateProductById
+} from "../services/product.services";
 import { v4 as uuidV4 } from "uuid";
 
 // create product
@@ -71,7 +77,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 
   const { error, value } = updateProductValidation(req.body);
   if (error) {
-    logger.error("ERR: product - create = ", error.details[0].message);
+    logger.error("ERR: product - update = ", error.details[0].message);
     return res.status(400).send({ status: false, statusCode: 422, message: error.details[0].message });
   }
 
@@ -85,7 +91,25 @@ export const updateProduct = async (req: Request, res: Response) => {
       message: "Update product successfully"
     });
   } catch (error) {
-    logger.info("Cannot get product from DB");
-    logger.error(error);
+    logger.error("ERR: product - update = ", error);
+    return res.status(500).send({ status: false, statusCode: 500, message: error });
+  }
+};
+
+export const deleteProduct = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  try {
+    deleteProductById(id);
+
+    logger.info("Success delete product data");
+    return res.status(200).send({
+      status: true,
+      statusCode: 200,
+      message: "Delete product successfully"
+    });
+  } catch (error) {
+    logger.error("ERR: product - delete = ", error);
+    return res.status(422).send({ status: false, statusCode: 500, message: error });
   }
 };

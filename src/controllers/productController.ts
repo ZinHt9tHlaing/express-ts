@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import { createProductValidation } from "../validations/product.validation";
+import { createProductValidation, updateProductValidation } from "../validations/product.validation";
 import { logger } from "../utils/logger";
-import { createProductToDB, getProductById, getProductFromDB } from "../services/product.servies";
-import { ProductType } from "../types/product.types";
+import { createProductToDB, getProductById, getProductFromDB, updateProductById } from "../services/product.services";
 import { v4 as uuidV4 } from "uuid";
 
 // create product
@@ -60,6 +59,30 @@ export const getProduct = async (req: Request, res: Response) => {
       status: true,
       statusCode: 200,
       data: product
+    });
+  } catch (error) {
+    logger.info("Cannot get product from DB");
+    logger.error(error);
+  }
+};
+
+export const updateProduct = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const { error, value } = updateProductValidation(req.body);
+  if (error) {
+    logger.error("ERR: product - create = ", error.details[0].message);
+    return res.status(400).send({ status: false, statusCode: 422, message: error.details[0].message });
+  }
+
+  try {
+    updateProductById(id, value);
+
+    logger.info("Success update product data");
+    return res.status(200).send({
+      status: true,
+      statusCode: 200,
+      message: "Update product successfully"
     });
   } catch (error) {
     logger.info("Cannot get product from DB");

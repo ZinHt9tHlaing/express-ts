@@ -31,3 +31,19 @@ export const getProductById = async (id: string) => {
     logger.error(error);
   }
 };
+
+export const updateProductById = async (id: string, payload: ProductType) => {
+  try {
+    const product = await ProductModel.findOneAndUpdate(
+      { product_id: id },
+      {
+        $set: payload
+      },
+      { new: true }
+    ).lean();
+    return product;
+  } catch (error) {
+    logger.info("Cannot update product from DB");
+    logger.error(error);
+  }
+};

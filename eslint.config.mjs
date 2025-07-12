@@ -22,7 +22,9 @@ export default defineConfig([
       "@typescript-eslint/no-var-requires": "warn",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/restrict-template-expressions": "off",
-      "@typescript-eslint/strict-boolean-expressions": "off"
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "no-return-assign": "off",
+      "array-callback-return": "off",
     }
   },
   ...tseslint.configs.recommended

@@ -1,10 +1,12 @@
 import bodyParser from "body-parser";
 import express, { Application, NextFunction, Request, Response } from "express";
-import dotenv from "dotenv";
+import "dotenv/config";
 import { routes } from "./routes/routeIndex";
 import { logger } from "./utils/logger";
 import cors from "cors";
-dotenv.config();
+
+// connect to database
+import "./utils/connectDB";
 
 const app: Application = express();
 
@@ -26,5 +28,5 @@ routes(app);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  logger.info(`Server running on port: http://localhost:${PORT}`);
+  logger.info(`Server running on: http://localhost:${PORT}`);
 });

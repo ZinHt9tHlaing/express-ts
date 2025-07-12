@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { createProductValidation } from "../validations/product.validation";
 import { logger } from "../utils/logger";
+import { getProductFromDB } from "../services/product.servies";
+import { ProductType } from "../types/product-types";
 
 export const createProduct = async (req: Request, res: Response) => {
   const { error, value } = createProductValidation(req.body);
@@ -18,24 +20,21 @@ export const getAllProduct = async (req: Request, res: Response) => {
 };
 
 export const getProduct = async (req: Request, res: Response) => {
-  const product = [
-    {
-      name: "hello",
-      price: 15000
-    },
-    {
-      name: "20000",
-      price: 15000
-    }
-  ];
-
   const { name } = req.params;
+  const products: any = await getProductFromDB();
 
   if (name) {
-    const filterProduct = product.filter((item) => item.name === name);
-    res.status(200).send({ status: true, statusCode: 200, data: filterProduct });
+    const filterProduct = products.filter((product: ProductType) => product.name === name);
+
+    if (filterProduct.length === 0) {
+      logger.info("Data not found");
+      return res.status(404).send({ status: false, statusCode: 404, data: {} });
+    }
+
+    logger.info("Success get product data");
+    return res.status(200).send({ status: true, statusCode: 200, data: filterProduct[0] });
   }
 
   logger.info("Success get product data");
-  res.status(200).send({ status: true, statusCode: 200, data: product });
+  return res.status(200).send({ status: true, statusCode: 200, data: products });
 };
